@@ -19,8 +19,14 @@ const PULSE_CYCLES = 3;
 /* Snappy horizontal flip: completes in the first tenth of the pin (right as
    card 02 enters), then holds at 180 (mirrored) through the rest of the deck. */
 const FLIP_FRAC = 0.1;
-/* Viewport-heights of scroll spent handing the card from Services to About. */
-const HANDOFF = 0.6;
+/* Viewport-heights of scroll spent handing the card from Services to About.
+   Generous so the un-flip unwinds slowly and the card has breathing room to
+   settle onto the About track rather than snapping in a fraction of a second. */
+const HANDOFF = 1.3;
+/* Fraction of the handoff over which the un-flip (180 -> 360) completes. It
+   finishes EARLY (well before the travel/settle ends) so the card is already
+   front-facing (portrait.png) as it glides into and rests on the About slot. */
+const FLIP_BACK_FRAC = 0.6;
 /* About fade-out, tied to the About section's bottom edge (fractions of the
    viewport): full opacity while the bottom sits below the fold, fully gone by
    the time it rises to FADE_END — so the card never carries past About. */
@@ -143,7 +149,8 @@ export function ScrollPortrait() {
         // Phase 3 + termination: un-flip back to the original (180 -> 360) while
         // handing off onto the About track (read LIVE so it scrolls in flow),
         // then fade out as the About section's bottom rises — stops at About.
-        const t = ease(clamp01((s - cache.p2) / (cache.p3 - cache.p2)));
+        const tRaw = clamp01((s - cache.p2) / (cache.p3 - cache.p2));
+        const t = ease(tRaw);
         // Read the About elements LIVE every frame so the landing/fade always
         // tracks their real position and can never freeze or carry over.
         const aEl = getAnchor("about") ?? aboutEl;
@@ -155,7 +162,9 @@ export function ScrollPortrait() {
         cx = lerp(services.cx, a.left + a.width / 2, t);
         cy = lerp(services.cy, a.top + a.height / 2, t);
         width = lerp(services.w, a.width, t);
-        ry = lerp(180, 360, t);
+        // Un-flip on its own (earlier) timeline so it lands on the front face
+        // (portrait.png) before the card finishes settling into About.
+        ry = lerp(180, 360, ease(clamp01(tRaw / FLIP_BACK_FRAC)));
         const vh = window.innerHeight;
         // Fade out as the About section's bottom rises into view, and force it
         // fully hidden once the section is past — so it stops at About.
