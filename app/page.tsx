@@ -4,13 +4,11 @@ import { About } from "@/components/about/About";
 import { Awards } from "@/components/awards/Awards";
 import { Portfolio } from "@/components/portfolio/Portfolio";
 import { Experience } from "@/components/experience/Experience";
+import { Testimonials } from "@/components/testimonials/Testimonials";
 import { ScrollPortrait } from "@/components/scene/ScrollPortrait";
 
 export default function Home() {
-  const sections = [
-    { id: "testimonials", label: "Reviews" },
-    { id: "contact", label: "Contact" },
-  ];
+  const sections = [{ id: "contact", label: "Contact" }];
 
   return (
     <>
@@ -27,6 +25,8 @@ export default function Home() {
       <Portfolio />
 
       <Experience />
+
+      <Testimonials />
 
       {sections.map((section) => (
         <section
