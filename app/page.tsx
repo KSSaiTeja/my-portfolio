@@ -2,11 +2,11 @@ import { Hero } from "@/components/hero/Hero";
 import { Services } from "@/components/services/Services";
 import { About } from "@/components/about/About";
 import { Awards } from "@/components/awards/Awards";
+import { Portfolio } from "@/components/portfolio/Portfolio";
 import { ScrollPortrait } from "@/components/scene/ScrollPortrait";
 
 export default function Home() {
   const sections = [
-    { id: "portfolio", label: "Portfolio" },
     { id: "testimonials", label: "Reviews" },
     { id: "contact", label: "Contact" },
   ];
@@ -22,6 +22,8 @@ export default function Home() {
       <About />
 
       <Awards />
+
+      <Portfolio />
 
       {sections.map((section) => (
         <section

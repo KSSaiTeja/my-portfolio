@@ -1110,6 +1110,234 @@ body[data-scene="on"] .about__media-fallback {
   }
 }
 
+/* ── Portfolio ───────────────────────────────────────────── */
+
+.portfolio {
+  position: relative;
+  overflow-x: clip;
+  background: var(--background);
+}
+
+.portfolio__inner {
+  width: 100%;
+  max-width: 75rem;
+  margin-inline: auto;
+  padding: clamp(3.5rem, 9vh, 5.8125rem) clamp(1.5rem, 4.86vw, 5.8125rem);
+}
+
+.portfolio__head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1.5rem;
+}
+
+.portfolio__intro {
+  max-width: 40rem;
+}
+
+.portfolio__eyebrow {
+  margin: 0 0 1.25rem;
+  font-family: var(--font-handwriting), "Comic Sans MS", cursive;
+  font-size: 1rem;
+  letter-spacing: -0.031em;
+  line-height: 1.1;
+  color: var(--foreground);
+}
+
+.portfolio__heading {
+  margin: 0;
+  font-size: clamp(2.25rem, 4.8vw, 3.4rem);
+  font-weight: 500;
+  letter-spacing: -0.04em;
+  line-height: 1.05;
+  color: var(--foreground);
+}
+
+.portfolio__heading-accent {
+  color: var(--accent);
+}
+
+.portfolio__lead {
+  margin: 1.25rem 0 0;
+  max-width: 32rem;
+  font-size: 0.9375rem;
+  font-weight: 400;
+  letter-spacing: -0.016em;
+  line-height: 1.5;
+  color: var(--muted);
+}
+
+.portfolio__cta-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-shrink: 0;
+  margin-top: 0.35rem;
+  padding: 0.55rem 0.9rem;
+  border-radius: 100px;
+  background: var(--surface);
+  font-size: 0.9375rem;
+  font-weight: 500;
+  letter-spacing: -0.031em;
+  line-height: 1;
+  color: var(--foreground);
+  text-decoration: none;
+  transition:
+    background 0.25s ease,
+    transform 0.25s ease;
+}
+
+.portfolio__cta-link:hover {
+  background: var(--foreground);
+  color: var(--background);
+  transform: translateY(-1px);
+}
+
+.portfolio__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(1rem, 2vw, 1.5rem);
+  margin: clamp(2.5rem, 6vh, 4rem) 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.portfolio__card {
+  list-style: none;
+}
+
+.portfolio__card-link {
+  display: block;
+  padding: clamp(0.85rem, 1.4vw, 1.25rem);
+  background: #fff;
+  border-radius: clamp(1.25rem, 1.6vw, 1.5625rem);
+  box-shadow:
+    0 8px 16px rgba(0, 0, 0, 0.03),
+    0 20px 40px rgba(0, 0, 0, 0.04);
+  transition:
+    transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.portfolio__card-link:hover {
+  transform: translateY(-6px);
+  box-shadow:
+    0 14px 24px rgba(0, 0, 0, 0.05),
+    0 30px 60px rgba(0, 0, 0, 0.07);
+}
+
+.portfolio__card-media {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  aspect-ratio: 16 / 11;
+  overflow: hidden;
+  border-radius: clamp(0.9rem, 1.2vw, 1.25rem);
+  background: #f7f7f7;
+}
+
+.portfolio__card-image {
+  object-fit: cover;
+}
+
+.portfolio__card-placeholder {
+  padding: 0 1.5rem;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  letter-spacing: -0.016em;
+  text-align: center;
+  color: var(--muted);
+}
+
+.portfolio__feature {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  margin-top: clamp(1rem, 2vw, 1.5rem);
+  padding: clamp(3rem, 7vw, 6.5rem) clamp(1.5rem, 5vw, 4rem);
+  overflow: hidden;
+  border: 2px dashed #c6c6c6;
+  border-radius: clamp(1.25rem, 1.6vw, 1.5625rem);
+  background: #fff;
+  text-align: center;
+  text-decoration: none;
+  transform-origin: center;
+  transition:
+    transform 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 0.25s ease,
+    background 0.25s ease;
+}
+
+.portfolio__feature:hover {
+  transform: rotate(2deg);
+  border-color: var(--foreground);
+  background: #fcfcfc;
+}
+
+/* Laurel wreath: sized to the card width (undistorted) so its two side arcs
+   sit at ~12% / ~88% across — framing the text on the left and right — while
+   the card's overflow clips the taller top/bottom of the wreath. */
+.portfolio__feature-banner {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background: url("/portfolio/portfolio-banner.png") center center / 100% auto
+    no-repeat;
+  opacity: 0.5;
+  pointer-events: none;
+  transition: opacity 0.45s ease;
+}
+
+.portfolio__feature:hover .portfolio__feature-banner {
+  opacity: 0.7;
+}
+
+.portfolio__feature-kicker,
+.portfolio__feature-title,
+.portfolio__feature-caption {
+  position: relative;
+  z-index: 1;
+}
+
+.portfolio__feature-kicker {
+  font-size: clamp(1rem, 1.5vw, 1.25rem);
+  font-weight: 500;
+  letter-spacing: -0.055em;
+  line-height: 1.15;
+  color: var(--foreground);
+}
+
+.portfolio__feature-title {
+  font-size: clamp(1.75rem, 3.6vw, 2.2rem);
+  font-weight: 600;
+  letter-spacing: -0.031em;
+  line-height: 1.1;
+  color: var(--foreground);
+}
+
+.portfolio__feature-caption {
+  font-size: 0.9375rem;
+  font-weight: 400;
+  letter-spacing: -0.016em;
+  line-height: 1.5;
+  color: var(--muted);
+}
+
+@media (max-width: 768px) {
+  .portfolio__head {
+    flex-direction: column;
+  }
+
+  .portfolio__grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 /* ── Bottom blur fade ────────────────────────────────────── */
 
 /* Fixed, full-width overlay anchored to the bottom of the viewport. It sits
