@@ -973,6 +973,143 @@ body[data-scene="on"] .about__media-fallback {
   }
 }
 
+/* ── Awards ──────────────────────────────────────────────── */
+
+.awards {
+  position: relative;
+  background: var(--background);
+}
+
+.awards__inner {
+  width: 100%;
+  max-width: 75rem;
+  margin-inline: auto;
+  padding: clamp(3.5rem, 9vh, 5.8125rem) clamp(1.5rem, 4.86vw, 5.8125rem);
+}
+
+.awards__eyebrow {
+  margin: 0 0 1.25rem;
+  font-family: var(--font-handwriting), "Comic Sans MS", cursive;
+  font-size: 1rem;
+  letter-spacing: -0.031em;
+  line-height: 1.1;
+  color: var(--foreground);
+}
+
+.awards__heading {
+  margin: 0;
+  max-width: 38rem;
+  font-size: clamp(2.25rem, 4.8vw, 3.4rem);
+  font-weight: 500;
+  letter-spacing: -0.04em;
+  line-height: 1.05;
+  color: var(--foreground);
+}
+
+.awards__heading-accent {
+  color: var(--accent);
+}
+
+.awards__lead {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  max-width: 40rem;
+  margin-top: clamp(1.5rem, 3vh, 2.25rem);
+}
+
+.awards__lead-text {
+  margin: 0;
+  font-size: 0.9375rem;
+  font-weight: 400;
+  letter-spacing: -0.016em;
+  line-height: 1.5;
+  color: var(--muted);
+}
+
+.awards__list {
+  margin: clamp(2.5rem, 6vh, 4rem) 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.awards__row {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(0, 2fr) minmax(0, 1fr);
+  grid-template-areas: "title org date";
+  align-items: center;
+  gap: 1.5rem;
+  padding: clamp(1.1rem, 2.4vh, 1.45rem) 0;
+}
+
+/* Divider lives in its own element so it can be drawn in on scroll. */
+.awards__row-line {
+  position: absolute;
+  inset: auto 0 0 0;
+  height: 1px;
+  background: var(--surface);
+  transform-origin: left center;
+}
+
+.awards__title {
+  grid-area: title;
+  font-size: clamp(1.125rem, 1.7vw, 1.4rem);
+  font-weight: 500;
+  letter-spacing: -0.06em;
+  line-height: 1.2;
+  color: var(--foreground);
+  transition: color 0.25s ease;
+}
+
+.awards__org,
+.awards__date {
+  font-size: clamp(1rem, 1.3vw, 1.15rem);
+  font-weight: 400;
+  letter-spacing: -0.045em;
+  line-height: 1.2;
+  color: var(--foreground);
+}
+
+.awards__org {
+  grid-area: org;
+}
+
+.awards__date {
+  grid-area: date;
+}
+
+/* Large closing statement below the list — the focal scroll-reveal moment. */
+.awards__closing {
+  margin: clamp(4.5rem, 11vh, 7.5rem) auto clamp(1rem, 3vh, 2.5rem);
+  max-width: 56rem;
+  font-size: clamp(1.625rem, 3.4vw, 2.625rem);
+  font-weight: 500;
+  letter-spacing: -0.03em;
+  line-height: 1.25;
+  text-align: center;
+  color: var(--foreground);
+  text-wrap: balance;
+}
+
+@media (max-width: 640px) {
+  .awards__row {
+    grid-template-columns: 1fr auto;
+    grid-template-areas:
+      "title title"
+      "org date";
+    gap: 0.35rem 1rem;
+  }
+
+  .awards__date {
+    text-align: right;
+  }
+
+  .awards__closing {
+    text-wrap: initial;
+  }
+}
+
 /* ── Bottom blur fade ────────────────────────────────────── */
 
 /* Fixed, full-width overlay anchored to the bottom of the viewport. It sits

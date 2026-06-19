@@ -1,6 +1,7 @@
 import { Hero } from "@/components/hero/Hero";
 import { Services } from "@/components/services/Services";
 import { About } from "@/components/about/About";
+import { Awards } from "@/components/awards/Awards";
 import { ScrollPortrait } from "@/components/scene/ScrollPortrait";
 
 export default function Home() {
@@ -19,6 +20,8 @@ export default function Home() {
       <Services />
 
       <About />
+
+      <Awards />
 
       {sections.map((section) => (
         <section
