@@ -3,6 +3,7 @@ import { Services } from "@/components/services/Services";
 import { About } from "@/components/about/About";
 import { Awards } from "@/components/awards/Awards";
 import { Portfolio } from "@/components/portfolio/Portfolio";
+import { Experience } from "@/components/experience/Experience";
 import { ScrollPortrait } from "@/components/scene/ScrollPortrait";
 
 export default function Home() {
@@ -24,6 +25,8 @@ export default function Home() {
       <Awards />
 
       <Portfolio />
+
+      <Experience />
 
       {sections.map((section) => (
         <section

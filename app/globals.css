@@ -1110,6 +1110,151 @@ body[data-scene="on"] .about__media-fallback {
   }
 }
 
+/* ── Experience ──────────────────────────────────────────── */
+
+.experience {
+  position: relative;
+  background: var(--background);
+}
+
+.experience__inner {
+  width: 100%;
+  max-width: 75rem;
+  margin-inline: auto;
+  padding: clamp(3.5rem, 9vh, 5.8125rem) clamp(1.5rem, 4.86vw, 5.8125rem);
+}
+
+.experience__head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.experience__eyebrow {
+  margin: 0 0 1.25rem;
+  font-family: var(--font-handwriting), "Comic Sans MS", cursive;
+  font-size: 1rem;
+  letter-spacing: -0.031em;
+  line-height: 1.1;
+  color: var(--foreground);
+}
+
+.experience__heading {
+  margin: 0;
+  font-size: clamp(2.25rem, 4.8vw, 3.4rem);
+  font-weight: 500;
+  letter-spacing: -0.04em;
+  line-height: 1.05;
+  color: var(--foreground);
+}
+
+.experience__heading-accent {
+  color: var(--accent);
+}
+
+.experience__lead {
+  margin: clamp(0.75rem, 2vh, 1.1rem) 0 0;
+  font-size: 0.9375rem;
+  font-weight: 400;
+  letter-spacing: -0.016em;
+  line-height: 1.5;
+  color: var(--muted);
+}
+
+.experience__cta {
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  margin-top: 0.5rem;
+  padding: 0.55rem 0.95rem;
+  border-radius: 100px;
+  background: var(--surface);
+  font-size: 0.9375rem;
+  font-weight: 500;
+  letter-spacing: -0.031em;
+  line-height: 1;
+  color: var(--foreground);
+  white-space: nowrap;
+  transition: background 0.25s ease, transform 0.25s ease;
+}
+
+.experience__cta:hover {
+  background: color-mix(in srgb, var(--surface) 70%, var(--foreground) 12%);
+  transform: translateY(-1px);
+}
+
+.experience__list {
+  margin: clamp(2.5rem, 6vh, 4rem) 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.experience__row {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  grid-template-areas:
+    "role period"
+    "company period";
+  align-items: start;
+  column-gap: 1.5rem;
+  row-gap: 0.4rem;
+  padding: clamp(1.1rem, 2.4vh, 1.55rem) 0;
+}
+
+/* Divider lives in its own element so it can be drawn in on scroll. */
+.experience__row-line {
+  position: absolute;
+  inset: auto 0 0 0;
+  height: 1px;
+  background: var(--surface);
+  transform-origin: left center;
+}
+
+.experience__role {
+  grid-area: role;
+  font-size: clamp(1.125rem, 1.7vw, 1.4rem);
+  font-weight: 500;
+  letter-spacing: -0.06em;
+  line-height: 1.2;
+  color: var(--foreground);
+  transition: color 0.25s ease;
+}
+
+.experience__period,
+.experience__company {
+  font-size: clamp(0.95rem, 1.3vw, 1.1rem);
+  font-weight: 400;
+  letter-spacing: -0.033em;
+  line-height: 1.2;
+  color: var(--foreground);
+}
+
+.experience__period {
+  grid-area: period;
+  text-align: right;
+}
+
+.experience__company {
+  grid-area: company;
+}
+
+@media (max-width: 640px) {
+  .experience__head {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .experience__row {
+    grid-template-columns: 1fr auto;
+    grid-template-areas:
+      "role role"
+      "company period";
+    row-gap: 0.35rem;
+  }
+}
+
 /* ── Portfolio ───────────────────────────────────────────── */
 
 .portfolio {
