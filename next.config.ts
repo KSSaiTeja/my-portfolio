@@ -9,6 +9,9 @@ const nextConfig: NextConfig = {
       {
         pathname: "/portfolio/**",
       },
+      {
+        pathname: "/case-studies/**",
+      },
     ],
   },
 };

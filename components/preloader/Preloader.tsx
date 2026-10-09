@@ -6,14 +6,13 @@ type Phase = "greeting" | "exiting" | "complete";
 
 const GREETINGS = [
   "Hello",
-  "Dia Dhuit",
-  "Bonjour",
-  "Ciao",
-  "Hola",
-  "Olá",
-  "Zdravo",
-  "Hallo",
-  "G'day",
+  "నమస్కారం",
+  "नमस्ते",
+  "வணக்கம்",
+  "ನಮಸ್ಕಾರ",
+  "നമസ്കാരം",
+  "નમસ્તે",
+  "ନମସ୍କାର",
 ] as const;
 
 const GREETING_MS = 260;

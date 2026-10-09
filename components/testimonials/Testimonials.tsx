@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import {
@@ -81,6 +81,70 @@ function Column({ items, down }: { items: Testimonial[]; down: boolean }) {
         <div className="testimonials__group" aria-hidden="true">
           {items.map((item) => (
             <TestimonialCard key={`${item.id}-clone`} item={item} />
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+/** Mobile-only carousel: one card at a time, auto-advancing, no dots/controls.
+    The interval only runs while the mobile breakpoint matches and motion is
+    allowed, so it's idle on desktop and respects reduced-motion. */
+function MobileCarousel({ items }: { items: Testimonial[] }) {
+  const [index, setIndex] = useState(0);
+
+  useEffect(() => {
+    const mq = window.matchMedia(
+      "(max-width: 640px) and (prefers-reduced-motion: no-preference)",
+    );
+    let timer: number | undefined;
+
+    const stop = () => {
+      if (timer) window.clearInterval(timer);
+      timer = undefined;
+    };
+    const start = () => {
+      stop();
+      timer = window.setInterval(() => {
+        setIndex((i) => (i + 1) % items.length);
+      }, 4500);
+    };
+    const sync = () => {
+      if (mq.matches) start();
+      else {
+        stop();
+        setIndex(0);
+      }
+    };
+
+    sync();
+    mq.addEventListener("change", sync);
+    return () => {
+      mq.removeEventListener("change", sync);
+      stop();
+    };
+  }, [items.length]);
+
+  return (
+    <div
+      className="testimonials__carousel"
+      aria-roledescription="carousel"
+      aria-label="Testimonials"
+    >
+      <div className="testimonials__carousel-viewport">
+        <div
+          className="testimonials__carousel-track"
+          style={{ transform: `translate3d(-${index * 100}%, 0, 0)` }}
+        >
+          {items.map((item, i) => (
+            <div
+              className="testimonials__carousel-slide"
+              key={item.id}
+              aria-hidden={i !== index}
+            >
+              <TestimonialCard item={item} />
+            </div>
           ))}
         </div>
       </div>
@@ -171,6 +235,8 @@ export function Testimonials() {
             <Column key={i} items={col} down={i % 2 === 1} />
           ))}
         </div>
+
+        <MobileCarousel items={testimonials} />
       </div>
     </section>
   );

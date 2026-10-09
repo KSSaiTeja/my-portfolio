@@ -117,7 +117,11 @@ export function Experience() {
             <p className="experience__lead">{experienceIntro.lead}</p>
           </div>
 
-          <a className="experience__cta" href={experienceIntro.cta.href}>
+          <a
+            className="experience__cta"
+            href={experienceIntro.cta.href}
+            download="KSSaiTeja - Resume.pdf"
+          >
             {experienceIntro.cta.label}
           </a>
         </div>
@@ -132,8 +136,16 @@ export function Experience() {
                 {exp.period}
               </span>
               <span className="experience__company experience__token">
+                <img
+                  className="experience__logo"
+                  src={exp.logo}
+                  alt=""
+                  width={28}
+                  height={28}
+                />
                 {exp.company}
               </span>
+              <p className="experience__focus">{exp.focus}</p>
               <span className="experience__row-line" aria-hidden="true" />
             </li>
           ))}

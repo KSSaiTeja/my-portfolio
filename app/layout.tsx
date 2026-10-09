@@ -17,8 +17,9 @@ const gloriaHallelujah = Gloria_Hallelujah({
 });
 
 export const metadata: Metadata = {
-  title: "Portfolio",
-  description: "Creative portfolio",
+  title: "Sai Teja Kalepu — Product Designer",
+  description:
+    "Product designer in Hyderabad. B2C and B2B work across fintech, client products, and enterprise tools.",
 };
 
 export default function RootLayout({

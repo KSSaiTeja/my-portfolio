@@ -8,8 +8,9 @@ import { sceneImage } from "./scene-content";
 
 gsap.registerPlugin(ScrollTrigger);
 
-/* Must mirror the Services card timing so the pinned phase lines up exactly. */
-const CARD_COUNT = 8;
+/* Must mirror the Services card timing so the pinned phase lines up exactly.
+   Card count is read from the deck at measure time — a hardcoded count drifts
+   the pin and leaves the portrait sitting on later sections. */
 const SCROLL_PER_CARD = 0.6;
 
 /* Gentle scroll-linked zoom while pinned. Low intensity and only a few slow
@@ -93,7 +94,9 @@ export function ScrollPortrait() {
       card.style.height = `${baseH}px`;
 
       const pinDocTop = pinRect.top + scrollY;
-      const pinLen = (CARD_COUNT - 1) * window.innerHeight * SCROLL_PER_CARD;
+      const cardCount = document.querySelectorAll(".services__card").length;
+      const pinLen =
+        Math.max(cardCount - 1, 0) * window.innerHeight * SCROLL_PER_CARD;
 
       cache = {
         baseW,
@@ -172,6 +175,15 @@ export function ScrollPortrait() {
           sec.bottom <= 0
             ? 0
             : clamp01((sec.bottom - vh * FADE_END) / (vh * (FADE_START - FADE_END)));
+      }
+
+      // Hard stop. If About has already risen past the fade line, the card is
+      // done — a stale pin length must not park it over Awards or the work grid.
+      const aboutBottom = (
+        document.querySelector<HTMLElement>(".about") ?? aboutSectionEl
+      )?.getBoundingClientRect().bottom;
+      if (aboutBottom != null && aboutBottom <= window.innerHeight * FADE_END) {
+        alpha = 0;
       }
 
       gsap.set(card, {

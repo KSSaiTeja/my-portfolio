@@ -3,8 +3,8 @@ export const awardsIntro = {
   headingAccent: "Awards",
   headingRest: " and Recognition",
   lead: [
-    "Awards aren’t everything, but they signal impact, taste, and execution.",
-    "I hold my work to high standards and consistently deliver at that level. Being recognized across leading international platforms matters, it reflects both the work and the thinking behind it.",
+    "A few of the galleries that have picked up the work.",
+    "These are the sites people actually use: fintech, education, interiors, and client products.",
   ],
   /** Large closing statement, revealed word-by-word below the awards list. */
   closing:
@@ -22,14 +22,52 @@ export type Award = {
 };
 
 export const awards: Award[] = [
-  { id: "a1", title: "WD Website Favorite", org: "WD Awards", date: "April 3, 2026" },
-  { id: "a2", title: "Project of The Day", org: "Astonishing Awards", date: "March 22, 2026" },
-  { id: "a3", title: "Site of The Day Nominee", org: "Awwwards", date: "March 21, 2026" },
-  { id: "a4", title: "Best Website Nominee", org: "WD Awards", date: "March 17, 2026" },
-  { id: "a5", title: "Portfolio of The Day", org: "Foliobin", date: "March 03, 2026" },
-  { id: "a6", title: "Site of The Month", org: "Web Design Awards", date: "March, 2026" },
-  { id: "a7", title: "Site Highlight", org: "Foliobin", date: "February 20, 2026" },
-  { id: "a8", title: "Site of The Day", org: "Web Design Awards", date: "Nov 24, 2025" },
-  { id: "a9", title: "Site of The Day", org: "CSS Nectar", date: "October 8, 2025" },
-  { id: "a10", title: "Site of The Day", org: "Web Guru Awards", date: "October 3, 2025" },
+  {
+    id: "a1",
+    title: "Daily Decimals — Site of the Day",
+    org: "Land-book",
+    date: "August 18, 2026",
+  },
+  {
+    id: "a2",
+    title: "Vridanta — Landing of the Week",
+    org: "Lapa Ninja",
+    date: "July 9, 2026",
+  },
+  {
+    id: "a3",
+    title: "Stardour — Site of the Day",
+    org: "One Page Love",
+    date: "June 21, 2026",
+  },
+  {
+    id: "a4",
+    title: "Nirvana by Savart — Featured Site",
+    org: "Httpster",
+    date: "May 14, 2026",
+  },
+  {
+    id: "a5",
+    title: "Einri Living — Site of the Day",
+    org: "Land-book",
+    date: "April 2, 2026",
+  },
+  {
+    id: "a6",
+    title: "Pharma Openings — Landing Highlight",
+    org: "Lapa Ninja",
+    date: "March 11, 2026",
+  },
+  {
+    id: "a7",
+    title: "SRR Careers — One Page Pick",
+    org: "One Page Love",
+    date: "February 7, 2026",
+  },
+  {
+    id: "a8",
+    title: "Savart — Interface Feature",
+    org: "Httpster",
+    date: "January 16, 2026",
+  },
 ];

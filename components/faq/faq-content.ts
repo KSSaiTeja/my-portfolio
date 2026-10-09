@@ -17,9 +17,9 @@ export type Faq = {
 export const faqs: Faq[] = [
   {
     id: "f1",
-    question: "Do you take up projects for clients based in Hyderabad and Bengaluru?",
+    question: "Do you take freelance projects, or only full-time roles?",
     answer:
-      "Absolutely. A good part of my recent work has been with founders and teams across Hyderabad, Bengaluru and Vijayawada. Whether you sit in HITEC City or Koramangala, we can work fully remote — and if you're nearby, I'm happy to meet in person to kick things off.",
+      "Both. I take freelance and client projects with founders and teams across Hyderabad, Bengaluru and Vijayawada, remote or in person. I am also open to a full-time product design role when the team and the work are a fit.",
   },
   {
     id: "f2",
@@ -37,7 +37,7 @@ export const faqs: Faq[] = [
     id: "f4",
     question: "We're an early-stage startup in Bangalore on a tight budget. Can you still help?",
     answer:
-      "Of course. I've worked with plenty of bootstrapped and seed-stage teams from Bengaluru and Hyderabad. We can scope a lean first version that fits your budget, get it live, and add more in phases as you raise and grow.",
+      "Yes, as a freelance engagement. We can scope a lean first version that fits the budget, get it live, and add more in phases. If you are hiring full-time instead, say so and we can talk about that separately.",
   },
   {
     id: "f5",
@@ -59,8 +59,8 @@ export const faqs: Faq[] = [
   },
   {
     id: "f8",
-    question: "Would you consider a full-time or in-house role in Hyderabad or Bengaluru?",
+    question: "Are you open to a full-time role in Hyderabad or Bengaluru?",
     answer:
-      "I love the freedom of freelancing, but the right in-house role with a strong product team in Hyderabad or Bengaluru is something I'd genuinely consider. If the vision and the people are a good fit, let's have a proper conversation.",
+      "Yes. I am open to a full-time product design role with a team in Hyderabad or Bengaluru, on site or remote. Freelance projects stay open alongside that. If the product and the people fit, let's talk.",
   },
 ];

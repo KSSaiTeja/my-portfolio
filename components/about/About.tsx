@@ -61,6 +61,7 @@ export function About() {
                 <a
                   href={action.href}
                   className={`about__btn about__btn--${action.variant}`}
+                  {...(action.download ? { download: action.download } : {})}
                 >
                   {content}
                 </a>
@@ -86,7 +87,7 @@ export function About() {
           {aboutSocials.map((social) => {
             const Icon = socialIcons[social.id as SocialId];
             return (
-              <li key={social.id}>
+              <li key={social.id} hidden={social.hidden}>
                 <Magnetic strength={0.5}>
                   <a
                     href={social.href}

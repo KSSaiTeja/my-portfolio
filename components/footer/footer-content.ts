@@ -2,11 +2,11 @@ export const footerContent = {
   marquee: "Let's work together",
   // Star glyph used between marquee repeats.
   separator: "\u273B",
-  wordmark: "Nikola Radeski",
-  email: "contact@nikolaradeski.com",
-  phone: "+389 78 218 568",
+  wordmark: "Sai Teja Kalepu",
+  email: "saitej4865@gmail.com",
+  phone: "+91 9390418860",
   // Tel href needs the digits only.
-  phoneHref: "+38978218568",
-  year: "2025",
+  phoneHref: "+919390418860",
+  year: "2026",
   rights: "All rights reserved.",
 } as const;

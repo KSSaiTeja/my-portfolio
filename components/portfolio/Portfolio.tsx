@@ -6,7 +6,6 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import {
   portfolioIntro,
-  portfolioFeature,
   projects,
   type Project,
 } from "./portfolio-content";
@@ -50,7 +49,7 @@ export function Portfolio() {
       () => {
         gsap.from(
           root.querySelectorAll(
-            ".portfolio__eyebrow, .portfolio__heading, .portfolio__lead, .portfolio__cta-link",
+            ".portfolio__eyebrow, .portfolio__heading, .portfolio__lead",
           ),
           {
             y: 24,
@@ -74,23 +73,10 @@ export function Portfolio() {
           },
         });
 
-        gsap.from(".portfolio__feature", {
-          y: 40,
-          autoAlpha: 0,
-          duration: 0.9,
-          ease: "power3.out",
-          // Drop the leftover inline transform so the CSS hover tilt can apply.
-          clearProps: "transform",
-          scrollTrigger: {
-            trigger: ".portfolio__feature",
-            start: "top 88%",
-          },
-        });
-
         return () => {
           gsap.set(
             root.querySelectorAll(
-              ".portfolio__eyebrow, .portfolio__heading, .portfolio__lead, .portfolio__cta-link, .portfolio__card, .portfolio__feature",
+              ".portfolio__eyebrow, .portfolio__heading, .portfolio__lead, .portfolio__card",
             ),
             { clearProps: "all" },
           );
@@ -129,36 +115,33 @@ export function Portfolio() {
             </h2>
             <p className="portfolio__lead">{portfolioIntro.lead}</p>
           </div>
-
-          <a className="portfolio__cta-link" href={portfolioIntro.cta.href}>
-            {portfolioIntro.cta.label}
-            <span aria-hidden="true">&rarr;</span>
-          </a>
         </div>
 
         <ul className="portfolio__grid">
           {projects.map((project) => (
             <li key={project.id} className="portfolio__card">
-              <a className="portfolio__card-link" href={project.href}>
+              <a
+                className="portfolio__card-link"
+                href={project.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`${project.title} (opens in a new tab)`}
+              >
                 <ProjectMedia project={project} />
+                <span className="portfolio__visit">Visit now</span>
               </a>
             </li>
           ))}
+          <li className="portfolio__card">
+            <div className="portfolio__more">
+              <p className="portfolio__more-kicker">In progress</p>
+              <p className="portfolio__more-title">More on the way</p>
+              <p className="portfolio__more-note">
+                A few more projects will land in this space.
+              </p>
+            </div>
+          </li>
         </ul>
-
-        <a className="portfolio__feature" href={portfolioFeature.href}>
-          <span className="portfolio__feature-banner" aria-hidden="true" />
-
-          <span className="portfolio__feature-kicker">
-            {portfolioFeature.kicker}
-          </span>
-          <span className="portfolio__feature-title">
-            {portfolioFeature.title}
-          </span>
-          <span className="portfolio__feature-caption">
-            {portfolioFeature.caption}
-          </span>
-        </a>
       </div>
     </section>
   );

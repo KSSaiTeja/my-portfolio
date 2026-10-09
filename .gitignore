@@ -36,6 +36,10 @@ yarn-error.log*
 # vercel
 .vercel
 
+# Local design source PDFs. One file is over GitHub's 100MB limit,
+# and the site uses the exported images in public/case-studies/.
+/case-studies/**/*.pdf
+
 # typescript
 *.tsbuildinfo
 next-env.d.ts

@@ -19,7 +19,7 @@ export const contactFields: ContactField[] = [
   {
     id: "fullName",
     label: "Your Full Name",
-    placeholder: "Sai Teja Kommineni",
+    placeholder: "Sai Teja Kalepu",
     type: "text",
     autoComplete: "name",
   },
@@ -33,7 +33,7 @@ export const contactFields: ContactField[] = [
   {
     id: "email",
     label: "Your E-mail Address",
-    placeholder: "mail@example.com",
+    placeholder: "saitej4865@gmail.com",
     type: "email",
     autoComplete: "email",
   },
@@ -49,9 +49,9 @@ export type ContactStatus = (typeof contactStatuses)[number]["id"];
 export const contactCard = {
   badge: "Top Rated Designer",
   body: "If the work above fits what you need, send me a note. Share the goal, a link, budget range, and when you want to start. I'll reply with the next step.",
-  signature: "Nikola Radeski",
+  signature: "Sai Teja Kalepu",
   portraitSrc: "/hero/portrait.png",
-  portraitAlt: "Portrait of Nikola Radeski",
+  portraitAlt: "Portrait of Sai Teja Kalepu",
 } as const;
 
 export const contactSuccess =
